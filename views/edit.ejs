@@ -19,7 +19,7 @@
             <textarea name="note" id="note" cols="30" rows="10" style="resize: none" ><%= body.note %></textarea>
             <button class="btn btn-primary mt-3">Add</button>
         </form>
-        <!-- <button type="submit" class="btn btn-danger mt-3" onclick="deleteNote(`<%=body.id%>`)">Delete</button> -->
+        
 
 
     <% if(error) { %>
@@ -33,11 +33,7 @@
     </div>
 
     
-  <!--   <script>
-        function deleteNote(id) {
-            fetch('/' + id,{method:'delete'})
-        }
-    </script> -->
+
 </body>
 </html>
 

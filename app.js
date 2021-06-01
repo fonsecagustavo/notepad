@@ -1,9 +1,10 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const port = 3000
 const path = require('path')
 const noteRoute = require('./routes/noteRoute')
+require('dotenv').config()
+const port = process.env.PORT
 
 //banco de dados
 mongoose.connect('mongodb://localhost/notepad', { 
@@ -11,12 +12,10 @@ mongoose.connect('mongodb://localhost/notepad', {
     useUnifiedTopology: true
 })
 
-const db = mongoose.connection
-
+//conectando no banco
+const db = mongoose.connection 
 db.on('error', ()=> {console.log('erro')})
-db.once('open', ()=> {
-    console.log('banco de dados')
-})
+db.once('open', ()=> {console.log('banco de dados')})
 
 //ejs
 app.set('views', path.join(__dirname,'./views'))
