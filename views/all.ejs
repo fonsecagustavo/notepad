@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Notepad</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="d-flex justify-content-center">
+        <div class="conatiner w-50">
+            <h1>Notepad</h1>
+            <a class="btn btn-warning" href="/add">Adicionar nota</a>
+    
+            <% for(let i = 0; i < note.length; i++) { %>
+                <div class="card p-2 mt-2 " id="<%= note[i]._id %>">
+                    <form class="d-flex align-items-center justify-content-between" method="POST" action="/?_method=DELETE">
+                        <div class="d-flex flex-column">
+                        <h2> <%= note[i].title %> </h2>
+                        <div> <%= note[i].note %> </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                            <input type="text" name="id" value="<%= note[i].id %>" hidden>
+                            <a class="btn btn-secondary mb-2" href="/edit/<%= note[i]._id %>"> Visualizar </a>
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </div>
+    
+                    </form>
+                </div>
+    
+            <% } %> 
+            
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
